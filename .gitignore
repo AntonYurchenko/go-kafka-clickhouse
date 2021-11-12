@@ -1,2 +1,5 @@
 .vscode
 go.sum
+volumes/kafka/*
+volumes/zookeeper/*
+volumes/clickhouse/data/*

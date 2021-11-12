@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	entrypoint = flag.String("e", "localhost:8080", "Endpoint of http server")
+	entrypoint = flag.String("e", "localhost:8080", "Entrypoint of http server")
 	brokers    = flag.String("b", "localhost:9092", "Kafka brokers split by comma")
 	topic      = flag.String("t", "topic1", "Kafka target topic")
 	cache      = flag.Uint("c", 1, "Size of internal cache")
