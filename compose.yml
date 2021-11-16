@@ -55,7 +55,7 @@ services:
     networks:
       - backend
     deploy:
-      replicas: 1
+      replicas: ${ENTRYPOINT_REPLICAS}
     command: >
       -e '0.0.0.0:8080'
       -b 'kafka:9192' 
