@@ -47,3 +47,17 @@ services:
         hard: 262144
     networks:
       - backend
+  
+  entrypoint:
+    image: github.com/antonyurchenko/entrypoint:${ENTRYPOINT_VERSION}
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+    deploy:
+      replicas: 1
+    command: >
+      -e '0.0.0.0:8080'
+      -b 'kafka:9192' 
+      -t 'events_topic'
+      -c 10000

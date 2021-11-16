@@ -901,7 +901,14 @@ CREATE TABLE IF NOT EXISTS default.events_kafka
     older Float64,
     is Int64
 )  
-ENGINE = Kafka('kafka:9192', 'events_topic', 'clickcouse_group_reader', 'JSONEachRow');
+ENGINE = Kafka()
+SETTINGS
+    kafka_broker_list = 'kafka:9192',
+    kafka_topic_list = 'events_topic',
+    kafka_group_name = 'clickcouse_reader',
+    kafka_format = 'JSONEachRow',
+    kafka_num_consumers = 1
+;
 
 CREATE MATERIALIZED VIEW IF NOT EXISTS default.events_consumer TO ROW_DATA.events AS 
     SELECT
