@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// Configuration.
 var (
 	entrypoint = flag.String("e", "0.0.0.0:8080", "Entrypoint of http server")
 	brokers    = flag.String("b", "0.0.0.0:9092", "Kafka brokers split by comma")
@@ -15,6 +16,7 @@ var (
 	cache      = flag.Uint("c", 100, "Size of internal cache")
 )
 
+// Entrypoint of application
 func main() {
 
 	flag.Parse()

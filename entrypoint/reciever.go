@@ -6,10 +6,13 @@ import (
 	"net/http"
 )
 
+// reciever is a function for reading events from http entrypoint.
 func reciever(events chan<- Event, entrypoint string) {
 
+	// definition of a general handler.
 	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
 
+		// validation of request.
 		switch {
 		case r.Method != "POST":
 			fmt.Fprint(rw, "Only POST method is supported")
@@ -20,6 +23,7 @@ func reciever(events chan<- Event, entrypoint string) {
 		}
 		defer r.Body.Close()
 
+		// validation of schema.
 		var event Event
 		err := json.NewDecoder(r.Body).Decode(&event)
 		if err != nil {
@@ -30,7 +34,8 @@ func reciever(events chan<- Event, entrypoint string) {
 		rw.WriteHeader(200)
 	})
 
+	// start entrypoint.
 	if err := http.ListenAndServe(entrypoint, nil); err != nil {
-		panic(err)
+		panic(err) //todo: processing error is here
 	}
 }

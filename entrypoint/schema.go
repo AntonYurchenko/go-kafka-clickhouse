@@ -1,5 +1,7 @@
 package main
 
+// Event is entity of input event. 
+// This entity is using for validation of structure for input events.
 type Event struct {
 	Noun           bool    `json:"noun"`
 	Attention      string  `json:"attention"`
