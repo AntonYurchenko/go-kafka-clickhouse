@@ -41,3 +41,17 @@ Up of all services
 ```bash
 ./up.sh
 ```
+
+## Stop of all environment
+For stopping of all services
+```bash
+./down.sh
+```
+
+If you need to clean persistent data of containers after stopping
+```bash
+./clean.sh
+```
+
+## Benchmark
+File `check/benchmark.sh` has a simple algorithm for check of performance on base Apache Benchmark.
