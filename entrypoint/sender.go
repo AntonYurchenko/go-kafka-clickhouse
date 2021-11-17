@@ -8,7 +8,7 @@ import (
 )
 
 // sender is a funcrion for writting events to selected Kafka topic.
-func sender(events <-chan Event, brokers []string, topic string) {
+func sender(events <-chan *Event, brokers []string, topic string) {
 
 	// start Kafka provider.
 	provider, err := sarama.NewAsyncProducer(brokers, nil)

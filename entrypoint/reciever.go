@@ -7,7 +7,7 @@ import (
 )
 
 // reciever is a function for reading events from http entrypoint.
-func reciever(events chan<- Event, entrypoint string) {
+func reciever(events chan<- *Event, entrypoint string) {
 
 	// definition of a general handler.
 	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
@@ -30,7 +30,7 @@ func reciever(events chan<- Event, entrypoint string) {
 			rw.WriteHeader(400)
 		}
 
-		events <- event
+		events <- &event
 		rw.WriteHeader(200)
 	})
 

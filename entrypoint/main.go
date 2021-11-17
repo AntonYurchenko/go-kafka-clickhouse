@@ -22,7 +22,7 @@ func main() {
 	flag.Parse()
 
 	signals := make(chan os.Signal, 1)
-	events := make(chan Event, *cache)
+	events := make(chan *Event, *cache)
 	cpuCount := runtime.NumCPU()
 
 	signal.Notify(signals, os.Interrupt)
