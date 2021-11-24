@@ -60,4 +60,4 @@ services:
       -e '0.0.0.0:8080'
       -b 'kafka:9192' 
       -t 'events_topic'
-      -c 10000
+      -c 1000000

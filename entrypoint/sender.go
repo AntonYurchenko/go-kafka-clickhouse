@@ -21,7 +21,7 @@ func sender(events <-chan *Event, brokers []string, topic string) {
 	for {
 		select {
 		case event := <-events:
-			value, _ := json.Marshal(event)
+			value, _ := json.Marshal(*event)
 			provider.Input() <- &sarama.ProducerMessage{
 				Topic: topic,
 				Key:   nil,
