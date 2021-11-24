@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
 	"os/signal"
 	"runtime"
@@ -24,6 +25,7 @@ func main() {
 	signals := make(chan os.Signal, 1)
 	events := make(chan *Event, *cache)
 	cpuCount := runtime.NumCPU()
+	fmt.Printf("Number of CPU: %d", cpuCount)
 
 	signal.Notify(signals, os.Interrupt)
 	runtime.GOMAXPROCS(cpuCount)
