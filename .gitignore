@@ -1,5 +1,9 @@
+.DS_Store
 .vscode
 go.sum
 volumes/kafka/*
 volumes/zookeeper/*
 volumes/clickhouse/data/*
+jmeter.log
+rps_test.csv
+check/report
